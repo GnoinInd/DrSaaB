@@ -23,7 +23,7 @@ use App\Http\Controllers\aboutController;
 //     return view('welcome');
 // });
 route::get('/index', [homecontroller::class, 'index'])->name('index');
-route::get('/hospitals', [homecontroller::class, 'Hospitals'])->name('hospitals');
+route::get('/dashboard/hospitals', [homecontroller::class, 'Hospitals'])->name('hospitals');
 route::get('/doctors', [homecontroller::class, 'Doctors'])->name('doctors');
 route::get('/patholabs', [homecontroller::class, 'Patholabs'])->name('patholabs');
 route::get('/clinics', [homecontroller::class, 'Clinics'])->name('clinics');
@@ -33,6 +33,8 @@ route::get('/bodyfatcal', [homecontroller::class, 'Bodyfatcal'])->name('bodyfatc
 
 // USER DASHBOARD
 route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
+
+
 
 
 

@@ -4,256 +4,12 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Snippets</title>
+    <title>Dashboard</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
-
     <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-        }
-
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-
-        :root {
-            --header-height: 3rem;
-            --nav-width: 68px;
-            --first-color: #007bff;
-            --first-color-light: #AFA5D9;
-            --white-color: #F7F6FB;
-            --body-font: 'Nunito', sans-serif;
-            --normal-font-size: 1rem;
-            --z-fixed: 100
-        }
-
-        *,
-        ::before,
-        ::after {
-            box-sizing: border-box
-        }
-
-        body {
-            position: relative;
-            margin: var(--header-height) 0 0 0;
-            padding: 0 1rem;
-            font-family: var(--body-font);
-            font-size: var(--normal-font-size);
-            transition: .5s
-        }
-
-        a {
-            text-decoration: none
-        }
-
-        .header {
-            width: 100%;
-            height: var(--header-height);
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 1rem;
-            background-color: var(--white-color);
-            z-index: var(--z-fixed);
-            transition: .5s
-        }
-
-        .header_toggle {
-            color: var(--first-color);
-            font-size: 1.5rem;
-            cursor: pointer
-        }
-
-        .header_img {
-            width: 35px;
-            height: 35px;
-            display: flex;
-            justify-content: center;
-            border-radius: 50%;
-            overflow: hidden
-        }
-
-        .header_img img {
-            width: 40px
-        }
-
-        .l-navbar {
-            position: fixed;
-            top: 0;
-            left: -30%;
-            width: var(--nav-width);
-            height: 100vh;
-            background-color: var(--first-color);
-            padding: .5rem 1rem 0 0;
-            transition: .5s;
-            z-index: var(--z-fixed)
-        }
-
-        .nav {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden
-        }
-
-        .nav_logo,
-        .nav_link {
-            display: grid;
-            grid-template-columns: max-content max-content;
-            align-items: center;
-            column-gap: 1rem;
-            padding: .5rem 0 .5rem 1.5rem
-        }
-
-        .nav_logo {
-            margin-bottom: 2rem
-        }
-
-        .nav_logo-icon {
-            font-size: 1.25rem;
-            color: var(--white-color)
-        }
-
-        .nav_logo-name {
-            color: var(--white-color);
-            font-weight: 700
-        }
-
-        .nav_link {
-            position: relative;
-            color: var(--first-color-light);
-            margin-bottom: 1.5rem;
-            transition: .3s
-        }
-
-        .nav_link:hover {
-            color: var(--white-color)
-        }
-
-        .nav_icon {
-            font-size: 1.25rem
-        }
-
-        .show {
-            left: 0
-        }
-
-        .body-pd {
-            padding-left: calc(var(--nav-width) + 1rem)
-        }
-
-        .active {
-            color: var(--white-color)
-        }
-
-        .active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 2px;
-            height: 32px;
-            background-color: var(--white-color)
-        }
-
-        .height-100 {
-            height: 100vh
-        }
-
-        @media screen and (min-width: 768px) {
-            body {
-                margin: calc(var(--header-height) + 1rem) 0 0 0;
-                padding-left: calc(var(--nav-width) + 2rem)
-            }
-
-            .header {
-                height: calc(var(--header-height) + 1rem);
-                padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
-            }
-
-            .header_img {
-                width: 40px;
-                height: 40px
-            }
-
-            .header_img img {
-                width: 45px
-            }
-
-            .l-navbar {
-                left: 0;
-                padding: 1rem 1rem 0 0
-            }
-
-            .show {
-                width: calc(var(--nav-width) + 156px)
-            }
-
-            .body-pd {
-                padding-left: calc(var(--nav-width) + 188px)
-            }
-        }
-
-
-        /* Initially hide the dropdown */
-        .nav_dropdown {
-            display: none;
-        }
-
-        /* Style the toggle icon, change as needed */
-        .nav_dropdown_toggle::after {
-            content: '\25BC';
-            /* Downward arrow character */
-            margin-left: 5px;
-        }
-
-        /* Add hover effect for the toggle link */
-        .nav_link.active+.nav_dropdown .nav_dropdown_toggle::after {
-            content: '\25B2';
-            /* Upward arrow character */
-        }
-
-        /* Style the dropdown links as needed */
-        .nav_dropdown a {
-            display: block;
-            padding: 8px 20px;
-            text-decoration: none;
-            color: #fdfafa;
-        }
-
-        /* Add a background color on hover for dropdown links */
-        .nav_dropdown a:hover {
-            background-color: rgb(16, 16, 31);
-        }
-
-        . icony {
-            margin-right: 6px !important;
-            padding-top: 2px !important;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('build/assets/dashboardstyle.css') }}">
+    <script src="{{ asset('js/cities.js') }}"></script>
 </head>
 
 <body className='snippet-body'>
@@ -262,110 +18,288 @@
         <header class="header" id="header">
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
             <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+            <div class="textprint">
+
+
+                <h4 class="auto-type text-primary "></h4>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+                <script>
+                    var typed = new Typed('.auto-type', {
+                    strings: ["This is admin dashboard , You can see here your admin activity"],
+                    typeSpeed: 150,
+                    backspeed: 150, // typing speed
+                    showCursor: false, // Hide the cursor
+                    loop: true
+                });
+                </script>
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                            class="nav_logo-name">DrSaaB</span> </a>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <a class="accordion-button text-light" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Dashborad
-                                </a>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show "
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body text-light">
-                                    <ul>
-                                        <li class="nav-item">
-                                            <a class="nav-link active " aria-current="page" href="#"><i
-                                                    class="fa-solid fa-user-doctor icony"
-                                                    style="color: #ebeef4;"></i>DOCTOR</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#"> <i
-                                                    class="fa-solid fa-hospital icony"
-                                                    style="color: #ebedef;"></i>HOSPITAL</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">PATHOLOGY</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">CLINICS</a>
-                                        </li>
-                                    </ul>
+                <div> <a href="#" class="nav_logo"> <span href="{{ route('index') }}"
+                            class="nav_logo-name text-white fw-bold fs-2 ms-2 text-shadow">DrSaaB</span> </a>
+                    <div class="nav_list"> <a href="#dashboardPage" class="nav_link active" id="dashboardLink">
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">Dashboard-MAIN</span>
+                        </a>
+
+
+
+
+
+
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <button class="accordion-button text-whire" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                        Menus
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <a href="#" class="nav_link" id="usersLink">
+                                            <i class='bx bx-user nav_icon'></i>
+                                            <span class="nav_name">Hospital</span>
+                                        </a>
+                                        <a href="#" class="nav_link" id="usersLink">
+                                            <i class='bx bx-user nav_icon'></i>
+                                            <span class="nav_name">Doctor</span>
+                                        </a>
+                                        <a href="#" class="nav_link" id="usersLink">
+                                            <i class='bx bx-user nav_icon'></i>
+                                            <span class="nav_name">Clinic</span>
+                                        </a>
+                                        <a href="#" class="nav_link" id="usersLink">
+                                            <i class='bx bx-user nav_icon'></i>
+                                            <span class="nav_name">Patholab</span>
+                                        </a>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <a class="accordion-button collapsed text-light" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Home
+                            {{-- <div class="user">
+
+                                <a href="#" class="nav_link" id="usersLink">
+                                    <i class='bx bx-user nav_icon'></i>
+                                    <span class="nav_name">Users</span>
                                 </a>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                            </div> --}}
+
+                            <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                                    class="nav_name">Messages</span>
+                            </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                                    class="nav_name">Bookmark</span>
+                            </a> <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                                    class="nav_name">Files</span>
+                            </a> <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                                    class="nav_name">Stats</span> </a>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <a class="accordion-button collapsed text-light" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Page
-                                </a>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
-                        class="nav_name">SignOut</span> </a>
+                    </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                            class="nav_name">SignOut</span> </a>
             </nav>
         </div>
 
-        <div class="height-100 bg-light">
-            <h4>Main Components</h4>
+        <!-- end of sidebar -->
+
+        {{-- main contant --}}
+        <div class="height-100 bg-light" id="dashboardPage">
+            <h3>Dashboard</h3>
+
+
+        </div>
+        {{-- hospital add view --}}
+        <div class="height-100 bg-light" id="usersPage" style="display: none">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Register Your Hospital</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            {{-- <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li> --}}
+                            {{-- <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li> --}}
+                            {{-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li> --}}
+                            {{-- <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </li> --}}
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid bg-primary">
+                <div class="col-12">
+                    <div class="row ">
+                        <div class="col-6 img-sec">
+                            <div class="card">
+                                <h5 class="card-header txt text-bg">Hospital Information</h5>
+                                <div class="card-body">
+                                    <form method="POST" action="/register/store">
+
+
+                                        <div class="row">
+                                            <label class="txt" for="">Hospital Name:</label>
+                                            <div class="col-8">
+
+                                                <input type="text" placeholder="last name" class="reg-form">
+                                            </div>
+                                        </div>
+                                        <div class="row dependancy">
+                                            <div class="col-6 ">
+                                                <label for="state" class="txt">Select Hospital State:</label>
+                                                <select id="state" onchange="updateDependencies()">
+                                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                    <option value="Karnataka">Karnataka</option>
+                                                    <option value="West Bengal">West Bengal</option>
+                                                    <!-- Add more states here -->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-6 w-80">
+                                                <label for="dependencies" class="txt">Select Hospital City:</label>
+                                                <select id="dependencies" disabled>
+                                                    <option>Select a state to view its dependencies</option>
+                                                </select>
+                                            </div>
+                                            {{-- <label for="">Aplicant Full Name :</label>
+                                            <div class="col-6 w-80">
+
+                                                <input type="text" class="reg-form">
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="text" placeholder="last name" class="reg-form">
+                                            </div> --}}
+                                        </div>
+                                        <div class="row calender">
+                                            <div class="calender-body">
+                                                <label class="txt" for="">Doctor Availiblity Date and Number :</label>
+                                                <div class="col-6 ">
+                                                    <label for="start_date" class="txt">Start Date:</label>
+                                                    <input type="date" id="start_date" name="start_date"
+                                                        style="margin:3px " required>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="end_date" class="txt">End Date:</label>
+                                                    <input type="date" id="end_date" name="end_date" required>
+                                                </div>
+
+                                                <div class="col-4 ">
+                                                    <label for="availability" class="txt">Number of Doctor
+                                                        Available:</label>
+                                                    <input type="text" id="availability" name="availability" required>
+                                                </div>
+                                            </div>
+                                            {{-- <div class="col-6 w-80">
+
+                                                <input type="text" class="reg-form">
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="text" placeholder="last name" class="reg-form">
+                                            </div> --}}
+                                        </div>
+                                        <div class="row">
+                                            <label for="" class="txt">Aplicant Full Name :</label>
+                                            <div class="col-12 upload">
+                                                <input type="file" name="image" id="image" accept="image/*" required>
+                                            </div>
+
+
+
+
+                                        </div>
+                                        <input type="submit" value="Submit" class="submt-btn">
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6 border border-box 2px img-sec">
+                            <div class="cardProfileview">
+                                {{-- profile template --}}
+                                <div class="card" style="border-radius: 15px;">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex text-black">
+                                            <div class="flex-shrink-0">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                                                    alt="Generic placeholder image" class="img-fluid"
+                                                    style="width: 180px; border-radius: 10px;">
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h5 class="mb-1 text-white">Danny McLoan</h5>
+                                                <p class="mb-2 pb-1" style="color: #f0ebeb;">Senior
+                                                    Admin</p>
+                                                <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                                    style="background-color: #efefef;">
+                                                    <div>
+                                                        <p class="small text-muted mb-1">Articles</p>
+                                                        <p class="mb-0">41</p>
+                                                    </div>
+                                                    <div class="px-3">
+                                                        <p class="small text-muted mb-1">Followers</p>
+                                                        <p class="mb-0">976</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="small text-muted mb-1">Rating</p>
+                                                        <p class="mb-0">8.5</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex pt-1">
+                                                    <button type="button"
+                                                        class="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
+                                                    <button type="button"
+                                                        class="btn btn-primary flex-grow-1">Follow</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- profile template end --}}
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add content for the users page here -->
+
         </div>
 
         <script type='text/javascript'
-            src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'>
-        </script>
+            src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
         <script type='text/javascript' src='#'></script>
         <script type='text/javascript' src='#'></script>
         <script type='text/javascript' src='#'></script>
@@ -415,16 +349,78 @@
         e.preventDefault();
       });
         </script>
-
-
         <script>
-            $(document).ready(function() {
-  // Toggle the dropdown on clicking the active link
-  $('.nav_link.active').click(function() {
-    $('.nav_dropdown').slideToggle();
-  });
-});
+            document.addEventListener("DOMContentLoaded", function (event) {
+    // ...
+    
+    // Define function to show a specific page
+    const showPage = (pageId) => {
+    // Hide all pages
+    document.getElementById('dashboardPage').style.display = 'none';
+    document.getElementById('usersPage').style.display = 'none';
+    
+    // Show the specified page
+    document.getElementById(pageId).style.display = 'block';
+    };
+    
+    // ...
+    
+    // Add event listeners to your navigation links
+    const dashboardLink = document.getElementById('dashboardLink');
+    const usersLink = document.getElementById('usersLink');
+    
+    dashboardLink.addEventListener('click', () => {
+    showPage('dashboardPage');
+    });
+    
+    usersLink.addEventListener('click', () => {
+    showPage('usersPage');
+    });
+    
+    // ...
+    });
         </script>
+        <script>
+            // Define an object to map states to their dependent territories/regions
+            const stateDependencies = {
+            "Karnataka": ["Bangalore", "Mangalore"],
+            "Andhra Pradesh": ["Visakhapatnam (Vizag)","Vijayawada","Tirupati"],
+            "Arunachal Pradesh": ["Itanagar", "Naharlagun"],
+            "West Bengal": ["Kolkata", "Siliguri"],
+            
+            // Add more state dependencies here
+            };
+            
+            // Function to update the dependent territories/regions dropdown
+            function updateDependencies() {
+            const stateDropdown = document.getElementById("state");
+            const dependenciesDropdown = document.getElementById("dependencies");
+            const selectedState = stateDropdown.value;
+            
+            // Clear the current dependencies dropdown
+            // dependenciesDropdown.innerHTML = "";
+            dependenciesDropdown.length = 0;
+            
+            if (selectedState === "Select a state to view its dependencies") {
+            dependenciesDropdown.disabled = true;
+            } else {
+            // Enable the dependencies dropdown and populate it with the selected state's dependencies
+            dependenciesDropdown.disabled = false;
+            const dependencies = stateDependencies[selectedState] || [];
+            dependencies.forEach((dependency) => {
+            const option = document.createElement("option");
+            option.value = dependency;
+            option.text = dependency;
+            dependenciesDropdown.appendChild(option);
+            });
+            }
+            }
+            
+            // Initialize the form
+            updateDependencies();
+        </script>
+
+
     </body>
 
 </html>

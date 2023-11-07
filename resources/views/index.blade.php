@@ -27,12 +27,12 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
                     <script>
                         var typed = new Typed('.auto-type', {
-                            strings: ["we are always ready to help you, please fill-up your issue"],
-                            typeSpeed: 150,
-                            backspeed: 150, // typing speed
-                            loop: true
-
-                        });
+        strings: ["we are always ready to help you, please fill up your issue"],
+        typeSpeed: 150,
+        backspeed: 150, // typing speed
+        showCursor: false, // Hide the cursor
+        loop: true
+    });
                     </script>
                 </div>
             </div>

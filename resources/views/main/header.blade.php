@@ -98,7 +98,7 @@
 
 <body>
     {{-- topbar open --}}
-    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary p-0 m-0">
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary p-0 m-0" id="">
         <div class="container-fluid container-custmfluid top">
             <a class="navbar-brand text-white" href="#">drsaab@gnoin.com |</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -131,7 +131,7 @@
 
 
     <nav class="navbar sticky-top
-            navbar-expand-lg bg-body-tertiary m-0 p-0">
+            navbar-expand-lg bg-body-tertiary m-0 p-0" id="">
         <div class="container-fluid container-custmfluid p-1">
             <a class="navbar-brand text-white fw-bold fs-2 ms-2 text-shadow" href="{{ route('index') }}">DrSaaB</a>
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse"

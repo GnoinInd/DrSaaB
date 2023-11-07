@@ -10,4 +10,5 @@ class dashboardController extends Controller
     {
         return view('allDashboard.dashboard');
     }
+
 }
