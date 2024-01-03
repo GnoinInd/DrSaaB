@@ -23,8 +23,7 @@
 
                 <div class="mt-4">
                     <!-- Facebook -->
-                    <a type="button" class="btn btn-floating btn-primary btn-lg"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
                     <!-- Dribbble -->
                     <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
                     <!-- Twitter -->
@@ -149,13 +148,22 @@
                                         <div class="tab-content" id="pills-tabContent">
                                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                                 aria-labelledby="pills-home-tab" tabindex="0">
-                                                <form>
+                                                <form action="{{route('UserLogin')}}" method="POST">
+                                                    @if(Session::has('success'))
+                                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                                    @endif
+                                                    @if(Session::has('fail'))
+                                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                                    @endif
+                                                    @csrf
                                                     <div class="row mb-3 mt-3">
                                                         <label for="inputEmail3"
                                                             class="col-sm-2 col-form-label">Email</label>
                                                         <div class="col-sm-10">
-                                                            <input type="email" class="form-control"
-                                                                id="inputEmail3" />
+                                                            <input type="email" class="form-control" name="email"
+                                                                id="inputEmail3" value="{{old('email')}}" />
+                                                            <span class="text-danger">@error('email') {{$message}}
+                                                                @enderror</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -163,7 +171,9 @@
                                                             class="col-sm-2 col-form-label">Password</label>
                                                         <div class="col-sm-10">
                                                             <input type="password" class="form-control"
-                                                                id="inputPassword3" />
+                                                                id="inputPassword3" name="password" />
+                                                            <span class="text-danger">@error('password') {{$message}}
+                                                                @enderror</span>
                                                         </div>
                                                     </div>
 
@@ -174,29 +184,57 @@
                                             </div>
                                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                                 aria-labelledby="pills-profile-tab" tabindex="0">
-                                                <form>
+                                                <form action="{{ route('UserRegistration') }}" method="POST">
+                                                    @if(Session::has('success'))
+                                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                                    @endif
+                                                    @if(Session::has('fail'))
+                                                    <div class="alert alert-denger">{{Session::get('fail')}}</div>
+                                                    @endif
+                                                    @csrf
                                                     <div class="row mb-3 mt-3">
                                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Full
                                                             Name</label>
                                                         <div class="col-sm-10">
-                                                            <input type="email" class="form-control"
-                                                                id="inputEmail3" />
+                                                            <input type="text" class="form-control" id="inputEmail3"
+                                                                name="name" value="{{old('name')}}" />
+                                                            <span class="text-danger">@error('name') {{$message}}
+                                                                @enderror</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3 mt-3">
                                                         <label for="inputEmail3"
                                                             class="col-sm-2 col-form-label">Email</label>
                                                         <div class="col-sm-10">
-                                                            <input type="email" class="form-control"
-                                                                id="inputEmail3" />
+                                                            <input type="email" class="form-control" id="inputEmail3"
+                                                                name="email" value="{{old('email')}}" />
+                                                            <span class="text-danger">@error('email') {{$message}}
+                                                                @enderror</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="inputPassword3"
-                                                            class="col-sm-2 col-form-label">Mobile No.</label>
+                                                            class="col-sm-2 col-form-label">Password</label>
                                                         <div class="col-sm-10">
                                                             <input type="password" class="form-control"
-                                                                id="inputPassword3" />
+                                                                id="inputPassword3" name="password"
+                                                                value="{{old('password')}}" />
+                                                            <span class="text-danger">@error('password') {{$message}}
+                                                                @enderror</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label for="inputPassword3"
+                                                            class="col-sm-2 col-form-label">User</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="usertype">
+                                                                <option selected>Select User type</option>
+                                                                <option value="Admin">Admin</option>
+                                                                <option value="Doctor">Doctor</option>
+                                                                <option value="Hospita">Hospita</option>
+                                                                <option value="Lab">Lab</option>
+                                                            </select>
                                                         </div>
                                                     </div>
 

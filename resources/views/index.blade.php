@@ -41,8 +41,8 @@
             <div class="row position-relative">
                 <div class="col-3">
                     <div class="formbg p-2 text-end">
-                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"
-                            class="formdeg">
+                        <form action="{{ route('indexform') }}" method="POST" class="formdeg">
+                            @csrf
                             <p class="text-danger text-center fw-bold">
                                 <?php if (isset($error)) {
                                     echo $error;
@@ -58,7 +58,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-user text-success"></i></span>
                                 <input type="text" class="form-control placeholder-glow" placeholder="Fullname"
-                                    name="fname" value="<?php if (isset($error)) {
+                                    name="name" value="<?php if (isset($error)) {
                                         echo $fname;
                                     } ?>" />
 
@@ -97,7 +97,7 @@
                             </div>
 
                             <div class="d-grid mb-4">
-                                <button type="submit" class="btn btn-success" name="signup_btn">
+                                <button type="submit" class="btn btn-success" name="">
                                     Send Message
                                 </button>
 
